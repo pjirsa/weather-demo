@@ -52,7 +52,11 @@ namespace apim_demo_api1
                 endpoints.MapControllers();
             });
 
-            app.UseSwagger();
+            app.UseSwagger(c => {
+                c.PreSerializeFilters.Add((swagger, httpReq) => {
+                    swagger.Servers = new List<OpenApiServer> { new OpenApiServer { Url = $"{httpReq.Scheme}://{httpReq.Host.Value}" } };
+                });
+            });
 
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Weather API V1");
