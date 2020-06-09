@@ -56,6 +56,7 @@ namespace apim_demo_api1
 
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Weather API V1");
+                c.RoutePrefix = string.Empty;
             });
         }
     }
