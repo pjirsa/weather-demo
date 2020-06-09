@@ -35,5 +35,10 @@ namespace apim_demo_api1.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost]
+        public IActionResult Post(string body){
+            return new OkResult();
+        }
     }
 }
