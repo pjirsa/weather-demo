@@ -3,11 +3,11 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "sites_weather_demo_name": {
-            "defaultValue": "weather-demo",
+            "defaultValue": "",
             "type": "String"
         },
         "serverfarms_weather_demo_name": {
-            "defaultValue": "weather-demo",
+            "defaultValue": "",
             "type": "String"
         }
     },
@@ -159,7 +159,7 @@
                 "[resourceId('Microsoft.Web/sites', parameters('sites_weather_demo_name'))]"
             ],
             "properties": {
-                "siteName": "weather-demo",
+                "siteName": "[parameters('sites_weather_demo_name')]",
                 "hostNameType": "Verified"
             }
         }
